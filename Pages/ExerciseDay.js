@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Children, Component} from 'react';
 import { View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button} from 'react-native';
 import { } from 'react-native';
 
@@ -55,7 +55,6 @@ class Movement extends Component
                 showContent: false,
             });
         }
-
     }
 
     render()
@@ -91,19 +90,23 @@ class ExerciseDay extends Component
             exID : this.props.id,
             exData : getExerciseData(this.props.id),
         }
+
     }
 
     getMoveList() 
     {
-        const moveList = []
+        const moveList = [];
 
         for (const index in this.state.exData.moveIDs)
         {
             moveList.push(<Movement id = {this.state.exData.moveIDs[index]} />)
-        }       
+        }
 
-        return moveList;
+        const yeni = this.state.exData.moveIDs.map((item) => <Movement id= {item}/>);
+
+        return yeni;
     }
+
 
     render()
     {
