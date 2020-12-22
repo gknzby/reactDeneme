@@ -76,6 +76,7 @@ class EditMovement extends Component
         if(this.props.mod === "add")
         {
             submitText = "Add New Movement";
+            
         }
         else
         {

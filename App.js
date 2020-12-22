@@ -19,7 +19,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <EditMovement id="sdfsf" mod = "add"/>
+        <EditMovement id="sdfsf" mod = "edit"/>
       </>
 
     );
