@@ -61,11 +61,23 @@ function getDietData(dietID)
 }
 
 //ILKAY
-function getTemplateActivityList(antID)
+//stuID: Student ID
+function getTemplateActivityList(stuID)
 {
     let data = ['act1', 'act2', 'act3', 'act4']
+    return data;
+}
+//actID: Activity ID
+function getActivityData(actID)
+{
+    let data={
+        title: "Activity Title",
+        // Type: Saat dakika adım km vs
+        date: "date",
+        data: "DATA",
 
+    }
     return data;
 }
 
-export {getExListData, getExerciseTitles, getExerciseData, getMovementData, getDietListData, getDietData, getTemplateActivityList};
+export {getExListData, getExerciseTitles, getExerciseData, getMovementData, getDietListData, getDietData, getTemplateActivityList,getActivityData};
