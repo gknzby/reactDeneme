@@ -33,7 +33,7 @@ class MovInput extends Component
 }
 
 
-class CreateMovement extends Component
+class EditMovement extends Component
 {
     constructor(props)
     {
@@ -42,6 +42,7 @@ class CreateMovement extends Component
             movTitle : "",
             movArea : "",
             movContent : "",
+            notification : "",
         }
     }
 
@@ -52,14 +53,42 @@ class CreateMovement extends Component
         });
     }
 
+    onSubmit = () =>
+    {
+        if(this.props.mod === "add")
+        {
+            this.setState({
+                notification : "Added new movement!",
+            });
+        }
+        else
+        {
+            this.setState({
+                notification : "Movement has changed!",
+            });
+        }
+
+    }
+
     render()
     {
+        let submitText;
+        if(this.props.mod === "add")
+        {
+            submitText = "Add New Movement";
+        }
+        else
+        {
+            submitText = "Change Movement";
+        }
+
         return(
             <View>
                 <MovInput handleChange = {this.changeValue} id = "movTitle" texts = "Move Title"/>
                 <MovInput handleChange = {this.changeValue} id = "movArea" texts = "Move Area"/>
                 <MovInput handleChange = {this.changeValue} id = "movContent" texts = "Move Explanation"/>
-                <Text>{this.state.movTitle}, {this.state.movArea}, {this.state.movContent}</Text>
+                <View style = {styles.submitButton} onTouchEnd = {this.onSubmit} ><Text>{submitText}</Text></View>
+                <Text>{this.state.notification}</Text>
             </View>
 
 
@@ -72,15 +101,19 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderBottomWidth: 1,
         backgroundColor: '#ddffee',
-        padding : 10,
-    },
-    MovInputText:{
-
+        padding : 12,
     },
     textInput:{
+        marginTop : 2,
         backgroundColor : 'white',
         textAlignVertical:  'top',
     },
+    submitButton:{
+        height: 50,
+        backgroundColor: 'orange',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 })
 
-export default CreateMovement;
+export default EditMovement;

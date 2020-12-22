@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from './Pages/NavBar.js';
-import CreateMovement from './PagesA/CreateMovement.js'
+import EditMovement from './PagesA/EditMovement.js';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <CreateMovement id="sdfsf"/>
+        <EditMovement id="sdfsf" mod = "add"/>
       </>
 
     );
