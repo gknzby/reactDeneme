@@ -4,15 +4,11 @@ import { View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button
 import { } from 'react-native';
 
 
-
+import {getTemplateActivityList} from '../FetchData.js';
 
 
 class AddActivity extends Component
 {
-    handlePress = () => {
-        Alert.alert("TIKLANDI");
-    }
-
     render()
     {
         return(
@@ -27,9 +23,6 @@ class AddActivity extends Component
         );
     }
 }
-
-
-
 
 
 

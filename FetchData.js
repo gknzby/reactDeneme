@@ -60,6 +60,12 @@ function getDietData(dietID)
     return dietData
 }
 
+//ILKAY
+function getTemplateActivityList(antID)
+{
+    let data = ['act1', 'act2', 'act3', 'act4']
 
+    return data;
+}
 
-export {getExListData, getExerciseTitles, getExerciseData, getMovementData, getDietListData, getDietData};
+export {getExListData, getExerciseTitles, getExerciseData, getMovementData, getDietListData, getDietData, getTemplateActivityList};
