@@ -7,8 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from './Pages/NavBar.js';
-import AntExercises from './PagesA/AntExercises.js'
-import ExerciseDay from './Pages/ExerciseDay.js'
+import CreateMovement from './PagesA/CreateMovement.js'
 
 const Stack = createStackNavigator();
 
@@ -20,7 +19,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <ExerciseDay id="sdfsf"/>
+        <CreateMovement id="sdfsf"/>
       </>
 
     );
