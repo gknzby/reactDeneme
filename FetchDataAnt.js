@@ -22,4 +22,20 @@ function getMoveData(moveID)
     return data;
 }
 
-export {getTemplateExList, getTemplateMovList, getMoveData};
+function getTemplateAreaList(antID)
+{
+    let data = ['area1', 'area2', 'area3', 'area4', 'area5', 'area6']
+
+    return data;
+}
+
+function getAreaData(areaID)
+{
+    let data = {
+        title : "Area Title",
+    }
+
+    return data;
+}
+
+export {getTemplateExList, getTemplateMovList, getMoveData, getTemplateAreaList, getAreaData};

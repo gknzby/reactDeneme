@@ -10,7 +10,7 @@ class NewMovement extends Component
     {
         return(
             <View style = {styles.newMov}>
-                <Text>Add New Movement</Text>
+                <Text>Create Movement</Text>
             </View>
         );
     }

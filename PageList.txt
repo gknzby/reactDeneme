@@ -14,8 +14,9 @@ X   Home
             Exercise
                 Program
                     Add/Edit
-                Area
++               Area
                     Add/Edit
++                       Add Move To Area
 +               Movement
 +                   Add/Edit
             Diet
