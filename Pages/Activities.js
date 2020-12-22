@@ -37,11 +37,22 @@ class AddActivity extends Component
 
 class Activities extends Component
 {
+    handlePress = () => {
+        Alert.alert("TIKLANDI");
+    }
+
     render()
     {
-            return(
-                <AddActivity adc/>
-            );
+        return(
+            <View>
+                <View style = {styles.movement} onTouchEnd = {this.handlePress}>
+                    <View style = {styles.movTitle}>
+                        <Text>Ektivite Ekle</Text>
+                    </View>
+                </View>
+            </View>
+
+        );
     }
 }
 

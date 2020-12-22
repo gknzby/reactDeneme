@@ -113,7 +113,7 @@ class ExerciseDay extends Component
         return(
             <ScrollView>
                 <View style= {styles.banner}><Text>GÖRSEL</Text></View>
-                <ExDayHeader exData/>
+                <ExDayHeader exData = {this.state.exData}/>
                 {this.getMoveList()}
             </ScrollView>
         );
