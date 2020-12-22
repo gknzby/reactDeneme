@@ -123,10 +123,10 @@ class AntMovement extends Component
     render()
     {
         return(
-            <View>
+            <ScrollView>
                 <NewMovement />
                 {this.getMovList()}
-            </View>
+            </ScrollView>
         );
     }
 }

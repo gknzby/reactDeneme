@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from './Pages/NavBar.js';
+import AddMovToArea from './PagesA/AddMovToArea.js';
 import AntMovement from './PagesA/AntMovement.js';
 
 const Stack = createStackNavigator();
@@ -19,7 +20,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <AntMovement id="sdfsf"/>
+        <AddMovToArea id="sdfsf"/>
       </>
 
     );
