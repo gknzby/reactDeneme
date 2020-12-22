@@ -1,4 +1,4 @@
-/* ILKAY EROL */
+// ILKAY EROL  EKLEDİM 
 import React, {Children, Component} from 'react';
 import { View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert} from 'react-native';
 import { } from 'react-native';
