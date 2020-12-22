@@ -115,7 +115,7 @@ class AntMovement extends Component
     {
         const movList = getTemplateMovList(this.props.id);
 
-        movRenderList = movList.map((item) => <Movement id= {item}/>);
+        let movRenderList = movList.map((item) => <Movement id= {item}/>);
 
         return movRenderList;
     }

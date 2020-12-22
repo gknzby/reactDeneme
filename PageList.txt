@@ -16,14 +16,14 @@ X   Home
                     Add/Edit
                 Area
                     Add/Edit
-                Movement
++               Movement
 +                   Add/Edit
             Diet
                 Program
                     Add/Edit
                 Day
                     Add/Edit
-            Students
+            Students List
                 Exercise Add/Edit
                     Area Add/Edit
                         Movement List
@@ -31,3 +31,5 @@ X   Home
                     Day Add/Edit
             Messages(Student List)
                 Message(With A Student)
+    Account
+        Change details
