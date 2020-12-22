@@ -1,0 +1,33 @@
+ROOT
+    Login
+        Register
+X   Home
++       Student
++           Exercise
++               Area
++           Diet
++               Day
+            Activities
+                Add/Edit
+            Messages
+        Trainer
+            Exercise
+                Program
+                    Add/Edit
+                Area
+                    Add/Edit
+                Movement
++                   Add/Edit
+            Diet
+                Program
+                    Add/Edit
+                Day
+                    Add/Edit
+            Students
+                Exercise Add/Edit
+                    Area Add/Edit
+                        Movement List
+                Diet Add/Edit
+                    Day Add/Edit
+            Messages(Student List)
+                Message(With A Student)
