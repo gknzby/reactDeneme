@@ -91,8 +91,6 @@ class EditMovement extends Component
                 <View style = {styles.submitButton} onTouchEnd = {this.onSubmit} ><Text>{submitText}</Text></View>
                 <Text>{this.state.notification}</Text>
             </View>
-
-
         );
     }
 }
