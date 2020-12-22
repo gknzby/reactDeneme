@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import NavBar from './Pages/NavBar.js';
 import AntExercises from './PagesA/AntExercises.js'
 import ExerciseDay from './Pages/ExerciseDay.js'
+import Activities from './Pages/Activities.js'
 
 const Stack = createStackNavigator();
 
@@ -20,12 +21,13 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <ExerciseDay id="sdfsf"/>
+        <Activities id="sdfsf"/>
+        
       </>
 
     );
   }
 }
-
-
+//<ExerciseDay id="sdfsf"/>
+//<Activities id="sdfsf"/>
 export default App;

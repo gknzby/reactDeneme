@@ -60,4 +60,6 @@ function getDietData(dietID)
     return dietData
 }
 
+
+
 export {getExListData, getExerciseTitles, getExerciseData, getMovementData, getDietListData, getDietData};

@@ -11,12 +11,7 @@ class DietDayHeader extends Component
     {
         return(
             <View style = {styles.header}>
-                <View style = {styles.headerDay}>
-                    <Text>{this.props.day}</Text>
-                </View>
-                <View style = {styles.headerDate}>
-                    <Text>{this.props.date}</Text>
-                </View>
+                deneme
             </View>
         );
     }
