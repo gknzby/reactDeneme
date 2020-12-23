@@ -2,7 +2,117 @@ import React, {Component} from 'react';
 import { View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert} from 'react-native';
 import { } from 'react-native';
 
-import {getTemplateMovList, getMoveInAreaData} from '../FetchDataAnt.js'
+import {getTemplateMovList, getMoveInAreaData, getAreaData} from '../FetchDataAnt.js'
+
+
+class AreaInfo extends Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            areaTitle : getAreaData(this.props.id).title,
+            showContent : false,
+            newTitle : "",
+        }
+    }
+
+    handleChangeButton = () =>
+    {
+        const showCont = !(this.state.showContent);
+        this.setState({
+            showContent : showCont
+        });
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            newTitle : text,
+        })
+    }
+
+    handleSaveButton = () =>
+    {
+        let alertText = "New title is " + this.state.newTitle;
+
+        if(this.state.newTitle === "")
+        {
+            Alert.alert(
+                "Failed",
+                "New title can't be null",
+                [
+                    {
+                        text: "Okay",
+                    }
+                ],
+                {cancelable: false}
+            );
+
+            return;
+        }
+
+        Alert.alert(
+            "Title has changed",
+            alertText,
+            [
+                {
+                    text: "Okay",
+                }
+            ],
+            {cancelable: false}
+        );
+
+        let newTitle = this.state.newTitle;
+        this.setState({
+            areaTitle : newTitle,
+            showContent : false,
+        })
+    }
+
+    render()
+    {
+        let content;
+        let contentStyle;
+
+        if(this.state.showContent)
+        {
+            contentStyle = styles.showAreaContent;
+            content = (
+                <View  style = {contentStyle}>
+                    <View style = {styles.titleInputV}>
+                        <TextInput style = {styles.titleInput} onChangeText = {(text) => this.handleChangeText(text)}/>
+                    </View>
+                    <View style = {styles.titleSave} onTouchEnd = {this.handleSaveButton}>
+                        <Text>Save</Text>
+                    </View>
+                </View>
+        )
+        }
+        else
+        {
+            content = <></>
+            contentStyle = styles.hideAreaContent;
+        }
+
+        return(
+            <View>
+                <View style = {styles.areaInfo}>
+                    <View style = {styles.areaTitle}>
+                        <Text>{this.state.areaTitle}</Text>
+                    </View>
+                    <View style = {styles.changeButton} onTouchEnd = {this.handleChangeButton}>
+                        <Text>Change</Text>
+                    </View>
+                </View>
+                <View>
+                    {content}
+                </View>
+            </View>
+
+        );
+    }
+}
 
 class NewMovement extends Component
 {
@@ -150,33 +260,50 @@ class AreaCreateEdit extends Component
 
         return(
             <ScrollView>
-                <NewMovement />
+                <AreaInfo id = {this.props.id} />
                 {this.getMovList()}
+                <NewMovement />
             </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    newMov: {
+    areaInfo: {
         width: '100%',
         height: 70,
-        backgroundColor: '#eeeeff',
+        backgroundColor: '#ddeeff',
         borderBottomWidth: 2,
-        borderTopWidth: 2,
         flexDirection: 'row',
         alignItems: 'center',
         padding: 12,
     },
-    newMov: {
-        width: '100%',
-        height: 70,
-        backgroundColor: '#eeeeff',
+    areaTitle:{
+        flex : 1,
+    },
+    changeButton:{
+        backgroundColor: 'orange',
+        padding : 5,
+    },
+    showAreaContent:{
         borderBottomWidth: 2,
-        borderTopWidth: 2,
-        flexDirection: 'row',
-        alignItems: 'center',
         padding: 12,
+        flexDirection: 'row',
+    },
+    hideAreaContent:{
+        height: 0,
+    },
+    titleInputV:{
+        flex : 1,
+    },
+    titleInput:{
+        width : 200,
+        backgroundColor : '#dddddd',
+    },
+    titleSave:{
+        backgroundColor: 'orange',
+        padding : 5,
+        marginRight: 10,
     },
     movement: {
         width: '100%',
@@ -226,6 +353,15 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         backgroundColor: 'red',
         padding: 10,
+    },
+    newMov: {
+        width: '100%',
+        height: 70,
+        backgroundColor: '#eeeeff',
+        borderBottomWidth: 2,
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 12,
     },
 });
 

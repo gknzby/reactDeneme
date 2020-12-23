@@ -7,15 +7,16 @@ X   Home
 +               Area
 +           Diet
 +               Day
-            Activities
++           Activities
                 Add/Edit
             Messages
         Trainer
             Exercise
                 Program
                     Add/Edit
+                        Add Area To Program
 +               Area
-                    Add/Edit
++                   Add/Edit
 +                       Add Move To Area
 +               Movement
 +                   Add/Edit
