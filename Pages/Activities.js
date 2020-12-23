@@ -13,7 +13,7 @@ class NewActivity extends Component
     {
         return(
             <View style = {styles.newMov}>
-                <Text>Ektivite Ekle</Text>
+                <Text>Add Activity</Text>
             </View>
         );
     }
@@ -117,10 +117,10 @@ class Activities extends Component
     render()
     {
         return(
-            <View>
+            <ScrollView>
                 <NewActivity />
                 {this.getActivityList()}
-            </View>
+            </ScrollView>
         );
     }
 }
