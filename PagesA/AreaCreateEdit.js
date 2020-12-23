@@ -81,7 +81,7 @@ class AreaInfo extends Component
             content = (
                 <View  style = {contentStyle}>
                     <View style = {styles.titleInputV}>
-                        <TextInput style = {styles.titleInput} onChangeText = {(text) => this.handleChangeText(text)}/>
+                        <Text>New Title : </Text><TextInput style = {styles.titleInput} onChangeText = {(text) => this.handleChangeText(text)}/>
                     </View>
                     <View style = {styles.titleSave} onTouchEnd = {this.handleSaveButton}>
                         <Text>Save</Text>
@@ -160,12 +160,18 @@ class Movement extends Component
                 },
                 { 
                     text: "Remove", 
-                    onPress: this.props.handleRemoveMove(this.props.id) }
+                    onPress: this.handleRemoveProp
+                }
             ],
             { cancelable: false }
         );
 
 
+    }
+
+    handleRemoveProp = () => 
+    {
+        this.props.handleRemoveMove(this.props.id);
     }
 
     render()
