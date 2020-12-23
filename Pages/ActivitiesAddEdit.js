@@ -69,7 +69,7 @@ class ActivitiesAddEdit extends Component {
     {
         let newStyles = [styles.default,styles.default,styles.default,styles.default,styles.default];
         newStyles[number]=styles.highlighted;
-        contentArray:[<Running />,<Walking />, <Swimming/>,<Cycling/>,<RopeSkipping/>];
+        let contentArray=[<Running />,<Walking />, <Swimming/>,<Cycling/>,<RopeSkipping/>];
 
         this.setState({
             actStyles:newStyles,
@@ -115,13 +115,13 @@ class ActivitiesAddEdit extends Component {
                   <Text>Yüzme</Text>
               </View>
               <View style = {this.state.actStyles[3]} onTouchEnd = {this.handlePress3}>
-                  <Text>ipAtlama</Text>
-              </View>
-              <View style = {this.state.actStyles[4]} onTouchEnd = {this.handlePress4}>
                   <Text>Bisiklet</Text>
               </View>
+              <View style = {this.state.actStyles[4]} onTouchEnd = {this.handlePress4}>
+                  <Text>İp Atlama</Text>
+              </View>
           </View>
-          <View>
+          <View style = {styles.content}>
               {this.state.content}
           </View>
           </View>
@@ -133,31 +133,28 @@ class ActivitiesAddEdit extends Component {
  const styles = StyleSheet.create({
     default:{
         backgroundColor: 'blue',
+        flex:1,
+        alignItems:'center',
+        justifyContent: 'center',
 
     },
     highlighted:{
         backgroundColor: 'red',
+        flex:1,
+        alignItems:'center',
+        justifyContent: 'center',
+
+    },
+    content:{
 
     },
     parent:{
-        width: '100%',
-        height: 100,
-        flex:1,
+        
+        height:50,
         flexDirection:'row',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-
     },
 
     activityButtons:{
-        width: '100%',
-        height: 30,
-        backgroundColor: '#ddeeff',
-        borderWidth:1.7,
-        flex:1,
-        flexDirection:'row',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 
 });
