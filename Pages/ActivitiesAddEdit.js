@@ -52,26 +52,7 @@ class RopeSkipping extends Component{
      }
 }
 
-class ActBar extends Component{
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            showContent : false,
-        }
-    }
-    showHideContent = () =>
-    {
 
-    }
-
-    render()
-    {
-        return(
-            <View> Deneme </View>
-        );
-    }
-}
 
 
 class ActivitiesAddEdit extends Component {
@@ -80,6 +61,7 @@ class ActivitiesAddEdit extends Component {
         super(props);
         this.state={
             actStyles:[styles.default,styles.default,styles.default,styles.default,styles.default],
+            content:<></>,
         }
     }
 
@@ -87,9 +69,12 @@ class ActivitiesAddEdit extends Component {
     {
         let newStyles = [styles.default,styles.default,styles.default,styles.default,styles.default];
         newStyles[number]=styles.highlighted;
+        contentArray:[<Running />,<Walking />, <Swimming/>,<Cycling/>,<RopeSkipping/>];
 
         this.setState({
             actStyles:newStyles,
+            content:contentArray[number],
+            
         });
     }
     handlePress0 = () =>
@@ -118,7 +103,8 @@ class ActivitiesAddEdit extends Component {
     render() 
     {
        return (
-          <View style={styles.parent}>
+          <View>
+              <View style={styles.parent}>
               <View style = {this.state.actStyles[0]} onTouchEnd = {this.handlePress0}>
                   <Text>Koşu</Text>
               </View>
@@ -135,6 +121,10 @@ class ActivitiesAddEdit extends Component {
                   <Text>Bisiklet</Text>
               </View>
           </View>
+          <View>
+              {this.state.content}
+          </View>
+          </View>
        );
     }
  }
@@ -150,7 +140,7 @@ class ActivitiesAddEdit extends Component {
 
     },
     parent:{
-        width: '%100',
+        width: '100%',
         height: 100,
         flex:1,
         flexDirection:'row',
@@ -160,7 +150,7 @@ class ActivitiesAddEdit extends Component {
     },
 
     activityButtons:{
-        width: '%100',
+        width: '100%',
         height: 30,
         backgroundColor: '#ddeeff',
         borderWidth:1.7,
