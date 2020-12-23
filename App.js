@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from './Pages/NavBar.js';
-import AntAreas from './PagesA/AntAreas.js';
+import AreaCreateEdit from './PagesA/AreaCreateEdit.js';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <AntAreas id="aaaaaa"/>
+        <AreaCreateEdit id="aaaaaa"/>
       </>
 
     );
