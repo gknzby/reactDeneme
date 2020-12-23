@@ -6,7 +6,7 @@ class Walking extends Component{
     render() {
         return (
             <View style = {styles.activityButtons}>
-                <Text>walking</Text>
+                <Text>Walking</Text>
             </View>
         );
      }
@@ -75,15 +75,65 @@ class ActBar extends Component{
 
 
 class ActivitiesAddEdit extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            actStyles:[styles.default,styles.default,styles.default,styles.default,styles.default],
+        }
+    }
+
+    handlePress = (number) =>
+    {
+        let newStyles = [styles.default,styles.default,styles.default,styles.default,styles.default];
+        newStyles[number]=styles.highlighted;
+
+        this.setState({
+            actStyles:newStyles,
+        });
+    }
+    handlePress0 = () =>
+    {
+        this.handlePress(0);
+    }
+    handlePress1 = () =>
+    {
+        this.handlePress(1);
+    }
+    handlePress2 = () =>
+    {
+        this.handlePress(2);
+    }
+    handlePress3 = () =>
+    {
+        this.handlePress(3);
+    }
+    handlePress4 = () =>
+    {
+        this.handlePress(4);
+    }
+
+
+
     render() 
     {
        return (
           <View style={styles.parent}>
-             <Walking />
-             <Running />
-             <Cycling />
-             <Swimming />
-             <RopeSkipping />
+              <View style = {this.state.actStyles[0]} onTouchEnd = {this.handlePress0}>
+                  <Text>Koşu</Text>
+              </View>
+              <View style = {this.state.actStyles[1]} onTouchEnd = {this.handlePress1}>
+                  <Text>Yürüyüş</Text>
+              </View>
+              <View style = {this.state.actStyles[2]} onTouchEnd = {this.handlePress2}>
+                  <Text>Yüzme</Text>
+              </View>
+              <View style = {this.state.actStyles[3]} onTouchEnd = {this.handlePress3}>
+                  <Text>ipAtlama</Text>
+              </View>
+              <View style = {this.state.actStyles[4]} onTouchEnd = {this.handlePress4}>
+                  <Text>Bisiklet</Text>
+              </View>
           </View>
        );
     }
@@ -91,6 +141,14 @@ class ActivitiesAddEdit extends Component {
  
 
  const styles = StyleSheet.create({
+    default:{
+        backgroundColor: 'blue',
+
+    },
+    highlighted:{
+        backgroundColor: 'red',
+
+    },
     parent:{
         width: '%100',
         height: 100,
