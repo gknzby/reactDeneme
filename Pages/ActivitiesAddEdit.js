@@ -11,10 +11,11 @@ class Running extends Component{
         }
     }
 
-    handleChangeText = (text) =>
+    handleAddButton = () =>
     {
+        let newData = this.state.newData;
         this.setState({
-            newData : text,
+            
         })
     }
 
@@ -27,7 +28,7 @@ class Running extends Component{
                     <View >
                         <Button color='pink'
                         title="Add Activity"
-                        onPress={() => this.state.navigation.navigate('HomePage')}
+                        onPress={() => this.handleAddButton()}
                         />
                     </View>
                 </View>
