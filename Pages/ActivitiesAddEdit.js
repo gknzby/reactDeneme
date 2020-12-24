@@ -3,13 +3,28 @@ import {View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button,
 import { } from 'react-native';
 
 class Running extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            newData : "",
+        }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            newData : text,
+        })
+    }
+
     render() {
         return (
             <View style={styles.activityButtons}>
                 <View >
                     <Text>Add Running Data</Text>
                     <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                    <View style={styles.loginButton}>
+                    <View >
                         <Button color='pink'
                         title="Add Activity"
                         onPress={() => this.state.navigation.navigate('HomePage')}
@@ -28,7 +43,7 @@ class Walking extends Component{
                 <View >
                     <Text>Add Walking Data</Text>
                     <TextInput style={styles.dataBox} placeholder="Step"/>
-                    <View style={styles.loginButton}>
+                    <View>
                         <Button color='pink'
                         title="Add Activity"
                         />
@@ -46,7 +61,7 @@ class Swimming extends Component{
             <View >
                 <Text>Add Swimming Data</Text>
                 <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View style={styles.loginButton}>
+                <View>
                     <Button color='pink'
                     title="Add Activity"
                     />
@@ -64,7 +79,7 @@ class Cycling extends Component{
             <View >
                 <Text>Add Cycling Data</Text>
                 <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View style={styles.loginButton}>
+                <View>
                     <Button color='pink'
                     title="Add Activity"
                     />
@@ -82,10 +97,9 @@ class RopeSkipping extends Component{
             <View >
                 <Text>Add Skipping Rope Data</Text>
                 <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View style={styles.loginButton}>
+                <View>
                     <Button color='pink'
                     title="Add Activity"
-                    onPress={() => this.state.navigation.navigate('HomePage')}
                     />
                 </View>
             </View>
@@ -201,6 +215,7 @@ class ActivitiesAddEdit extends Component {
 
     // TEST STYLES
     dataBox: {
+        marginTop: 10,
         height:30,
         width: '50%',
         borderStyle: 'solid',
