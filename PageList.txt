@@ -8,13 +8,13 @@ X   Home
 +           Diet
 +               Day
 +           Activities
-                Add/Edit
++               Add/Edit
 //          Messages
-        Trainer
-            Exercise
-                Program
+//      Trainer
+//          Exercise
+//              Program
 +                   Add/Edit
-                        Add Area To Program
+//                      Add Area To Program
 +               Area
 +                   Add/Edit
 +                       Add Move To Area
