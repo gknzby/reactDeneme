@@ -2,21 +2,29 @@ import React, {Component} from 'react';
 import {View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert, TextInputBase} from 'react-native';
 import { } from 'react-native';
 
+import {getActivityData} from '../FetchData.js'
+
 class Running extends Component{
     constructor(props)
     {
         super(props);
         this.state = {
+            //activityData : getActivityData(this.props.id).data,
+            title:"Running",
             newData : "",
         }
     }
 
     handleAddButton = () =>
     {
-        let newData = this.state.newData;
+        let newData = this.setState.newData;
         this.setState({
-            
+            newData
         })
+
+        Alert.alert ("Clicked");
+
+        
     }
 
     render() {

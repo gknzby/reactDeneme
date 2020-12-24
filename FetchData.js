@@ -1,4 +1,4 @@
-function getExListData(exsID)
+    function getExListData(exsID)
 {
     let exsData = {
         exIDs : ['ex1', 'ex2', 'ex3', 'ex4'],
