@@ -2,26 +2,46 @@ import React, {Component} from 'react';
 import {View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert, TextInputBase} from 'react-native';
 import { } from 'react-native';
 
-import {getActivityData} from '../FetchData.js'
-
 class Running extends Component{
     constructor(props)
     {
         super(props);
         this.state = {
-            //activityData : getActivityData(this.props.id).data,
-            title:"Running",
+            type : "kosu",
             data : "",
+            distance: "",
+            date : "",
+            hour: "",
         }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            data : text,
+        })
+    }
+    handleChangeText2 = (text) =>
+    {
+        this.setState({
+            date : text,
+        })
+    }
+    handleChangeText3 = (text) =>
+    {
+        this.setState({
+            hour : text,
+        })
+    }
+    handleChangeText4 = (text) =>
+    {
+        this.setState({
+            distance : text,
+        })
     }
 
     handleAddButton = () =>
     {
-        let newData = this.state.newData;
-        this.setState({
-            data : newData,
-        })
-
         Alert.alert ("Clicked");
     }
 
@@ -30,7 +50,10 @@ class Running extends Component{
             <View style={styles.activityButtons}>
                 <View >
                     <Text>Add Running Data</Text>
-                    <TextInput style={styles.dataBox} placeholder="Minutes"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText(text)} placeholder="Minutes"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText4(text)} placeholder="Distance"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText2(text)} placeholder="Date"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText3(text)} placeholder="Hour"/>
                     <View >
                         <Button color='pink'
                         title="Add Activity"
@@ -44,15 +67,53 @@ class Running extends Component{
 }
 
 class Walking extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            type : "yuruyus",
+            data : "",
+            date : "",
+            hour: "",
+        }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            data : text,
+        })
+    }
+    handleChangeText2 = (text) =>
+    {
+        this.setState({
+            date : text,
+        })
+    }
+    handleChangeText3 = (text) =>
+    {
+        this.setState({
+            hour : text,
+        })
+    }
+
+    handleAddButton = () =>
+    {
+        Alert.alert ("Clicked");
+    }
+
     render() {
         return (
             <View style={styles.activityButtons}>
                 <View >
                     <Text>Add Walking Data</Text>
-                    <TextInput style={styles.dataBox} placeholder="Step"/>
-                    <View>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText(text)} placeholder="Step"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText2(text)} placeholder="Date"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText3(text)} placeholder="Hour"/>
+                    <View >
                         <Button color='pink'
                         title="Add Activity"
+                        onPress={this.handleAddButton}
                         />
                     </View>
                 </View>
@@ -62,55 +123,169 @@ class Walking extends Component{
 }
 
 class Swimming extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            type : "yuzme",
+            data : "",
+            date : "",
+            hour: "",
+        }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            data : text,
+        })
+    }
+    handleChangeText2 = (text) =>
+    {
+        this.setState({
+            date : text,
+        })
+    }
+    handleChangeText3 = (text) =>
+    {
+        this.setState({
+            hour : text,
+        })
+    }
+
+    handleAddButton = () =>
+    {
+        Alert.alert ("Clicked");
+    }
+
     render() {
         return (
             <View style={styles.activityButtons}>
-            <View >
-                <Text>Add Swimming Data</Text>
-                <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View>
-                    <Button color='pink'
-                    title="Add Activity"
-                    />
+                <View >
+                    <Text>Add Swimming Data</Text>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText(text)} placeholder="Duration"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText2(text)} placeholder="Date"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText3(text)} placeholder="Hour"/>
+                    <View >
+                        <Button color='pink'
+                        title="Add Activity"
+                        onPress={this.handleAddButton}
+                        />
+                    </View>
                 </View>
             </View>
-        </View>
         );
      }
 }
 
 class Cycling extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            type : "bisiklet",
+            data : "",
+            date : "",
+            hour: "",
+        }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            data : text,
+        })
+    }
+    handleChangeText2 = (text) =>
+    {
+        this.setState({
+            date : text,
+        })
+    }
+    handleChangeText3 = (text) =>
+    {
+        this.setState({
+            hour : text,
+        })
+    }
+
+    handleAddButton = () =>
+    {
+        Alert.alert ("Clicked");
+    }
+
     render() {
         return (
             <View style={styles.activityButtons}>
-            <View >
-                <Text>Add Cycling Data</Text>
-                <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View>
-                    <Button color='pink'
-                    title="Add Activity"
-                    />
+                <View >
+                    <Text>Add Cycling Data</Text>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText(text)} placeholder="Duration"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText2(text)} placeholder="Date"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText3(text)} placeholder="Hour"/>
+                    <View >
+                        <Button color='pink'
+                        title="Add Activity"
+                        onPress={this.handleAddButton}
+                        />
+                    </View>
                 </View>
             </View>
-        </View>
         );
      }
 }
 
 class RopeSkipping extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            type : "ip_atlama",
+            data : "",
+            date : "",
+            hour: "",
+        }
+    }
+
+    handleChangeText = (text) =>
+    {
+        this.setState({
+            data : text,
+        })
+    }
+    handleChangeText2 = (text) =>
+    {
+        this.setState({
+            date : text,
+        })
+    }
+    handleChangeText3 = (text) =>
+    {
+        this.setState({
+            hour : text,
+        })
+    }
+
+    handleAddButton = () =>
+    {
+        Alert.alert ("Clicked");
+    }
+
     render() {
         return (
             <View style={styles.activityButtons}>
-            <View >
-                <Text>Add Skipping Rope Data</Text>
-                <TextInput style={styles.dataBox} placeholder="Minutes"/>
-                <View>
-                    <Button color='pink'
-                    title="Add Activity"
-                    />
+                <View >
+                    <Text>Add Cycling Data</Text>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText(text)} placeholder="Duration"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText2(text)} placeholder="Date"/>
+                    <TextInput style={styles.dataBox} onChangeText = {(text) => this.handleChangeText3(text)} placeholder="Hour"/>
+                    <View >
+                        <Button color='pink'
+                        title="Add Activity"
+                        onPress={this.handleAddButton}
+                        />
+                    </View>
                 </View>
             </View>
-        </View>
         );
      }
 }
