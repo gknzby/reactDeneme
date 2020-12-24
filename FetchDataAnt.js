@@ -51,4 +51,38 @@ function getMoveInAreaData(moveID)
     return data;
 }
 
-export {getTemplateExList, getTemplateMovList, getMoveData, getTemplateAreaList, getAreaData, getMoveInAreaData};
+function getMoveInAreList(areaID)
+{
+    let data = ['mov2', 'mov3', 'mov4', 'mov5', 'mov6']
+
+    return data;
+}
+
+function getProgramData(programID)
+{
+    let data = {
+        title : "Area Title",
+    }
+
+    return data;
+}
+
+function getAreaInProgramData(moveID)
+{
+    let data = {
+        title : "Area Title",
+    }
+
+    return data;
+}
+
+function getAreaInProgramList(areaID)
+{
+    let data = ['area2', 'area3', 'areaarea4', 'area5', 'area6']
+
+    return data;
+}
+
+
+
+export {getTemplateExList, getTemplateMovList, getMoveData, getTemplateAreaList, getAreaData, getMoveInAreaData, getMoveInAreList, getProgramData, getAreaInProgramData, getAreaInProgramList};

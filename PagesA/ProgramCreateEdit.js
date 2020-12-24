@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import { View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert} from 'react-native';
 import { } from 'react-native';
 
-import {getMoveInAreList, getMoveInAreaData, getAreaData} from '../FetchDataAnt.js'
+import {getAreaInProgramList, getAreaInProgramData, getProgramData} from '../FetchDataAnt.js'
 
 
-class AreaInfo extends Component
+class ProgramInfo extends Component
 {
     constructor(props)
     {
         super(props);
         this.state = {
-            areaTitle : getAreaData(this.props.id).title,
+            programTitle : getProgramData(this.props.id).title,
             showContent : false,
             newTitle : "",
         }
@@ -77,7 +77,7 @@ class AreaInfo extends Component
 
         if(this.state.showContent)
         {
-            contentStyle = styles.showAreaContent;
+            contentStyle = styles.showProgramContent;
             content = (
                 <View  style = {contentStyle}>
                     <View style = {styles.titleInputV}>
@@ -92,14 +92,14 @@ class AreaInfo extends Component
         else
         {
             content = <></>
-            contentStyle = styles.hideAreaContent;
+            contentStyle = styles.hideProgramContent;
         }
 
         return(
             <View>
-                <View style = {styles.areaInfo}>
-                    <View style = {styles.areaTitle}>
-                        <Text>{this.state.areaTitle}</Text>
+                <View style = {styles.programInfo}>
+                    <View style = {styles.programTitle}>
+                        <Text>{this.state.programTitle}</Text>
                     </View>
                     <View style = {styles.changeButton} onTouchEnd = {this.handleChangeButton}>
                         <Text>Change</Text>
@@ -114,19 +114,19 @@ class AreaInfo extends Component
     }
 }
 
-class NewMovement extends Component
+class NewArea extends Component
 {
     render()
     {
         return(
-            <View style = {styles.newMov}>
-                <Text>Add Movement</Text>
+            <View style = {styles.newArea}>
+                <Text>Add Area</Text>
             </View>
         );
     }
 }
 
-class Movement extends Component
+class Area extends Component
 {
     constructor(props)
     {
@@ -146,9 +146,9 @@ class Movement extends Component
 
     handleRemove = () =>
     {
-        let moveData = getMoveInAreaData(this.props.id);
+        let areaData = getAreaInProgramData(this.props.id);
 
-        let alertText = moveData.title;
+        let alertText = areaData.title;
         Alert.alert(
             "Are you sure to remove this",
             alertText,
@@ -171,12 +171,12 @@ class Movement extends Component
 
     handleRemoveProp = () => 
     {
-        this.props.handleRemoveMove(this.props.id);
+        this.props.handleRemoveArea(this.props.id);
     }
 
     render()
     {
-        let moveData = getMoveInAreaData(this.props.id);
+        let areaData = getAreaInProgramData(this.props.id);
 
         let contentStyle;
         let content;
@@ -186,40 +186,33 @@ class Movement extends Component
             content = (
                 <>
                     <View>
-                        <Text>{moveData.content}</Text>
+                        <Text>{areaData.content}</Text>
                     </View>
                     <View style = {styles.buttons}>
-                        <View style = {styles.setRepeat} >
-                            <View style = {styles.inputSet}>
-                                <Text>Set : {moveData.set}</Text>
-                            </View>
-                            <View style = {styles.inputSet}>
-                                <Text>Repeat : {moveData.repeat}</Text>
-                            </View> 
-                        </View>
                         <View style = {styles.removeButton} onTouchEnd = {this.handleRemove}>
-                            <Text>Remove</Text>
+                            <Text>Remove Area</Text>
+                        </View>
+                        <View style = {styles.editButton}>
+                            <Text>Edit Area</Text>
                         </View>
                     </View>
 
+
                 </>
             )
-            contentStyle = styles.showMovContent;
+            contentStyle = styles.showAreaContent;
         }
         else
         {
             content = <></>
-            contentStyle = styles.hideMovContent;
+            contentStyle = styles.hideAreaContent;
         }
 
         return(
             <View>
-                <View style = {styles.movement} onTouchEnd = {this.showHideContent}>
-                    <View style = {styles.movTitle}>
-                        <Text>{moveData.title}</Text>
-                    </View>
-                    <View style = {styles.movArea}>
-                        <Text>{moveData.area}</Text>
+                <View style = {styles.area} onTouchEnd = {this.showHideContent}>
+                    <View style = {styles.areaTitle}>
+                        <Text>{areaData.title}</Text>
                     </View>
                 </View>
                 <View style = {contentStyle}>
@@ -232,15 +225,15 @@ class Movement extends Component
 }
 
 
-class AreaCreateEdit extends Component
+class ProgramCreateEdit extends Component
 {
-    handleRemove = (movID) =>
+    handleRemove = (areaID) =>
     {
-        let alertText = "Area ID : " + this.props.id + "\n"
-                        + "Move ID : " + movID + "\n"
+        let alertText = "Program ID : " + this.props.id + "\n"
+                        + "Area ID : " + areaID + "\n"
 
         Alert.alert(
-            "Removed From Area!",
+            "Removed From Program!",
             alertText,
             [
                 { 
@@ -252,13 +245,13 @@ class AreaCreateEdit extends Component
         );
     }
 
-    getMovList()
+    getAreaList()
     {
-        const movList = getMoveInAreList(this.props.id);
+        const areaList = getAreaInProgramList(this.props.id);
 
-        let movRenderList = movList.map((item) => <Movement id= {item} handleRemoveMove = {this.handleRemove} />);
+        let areaRenderList = areaList.map((item) => <Area id= {item} handleRemoveArea = {this.handleRemove} />);
 
-        return movRenderList;
+        return areaRenderList;
     }
 
     render()
@@ -266,16 +259,16 @@ class AreaCreateEdit extends Component
 
         return(
             <ScrollView>
-                <AreaInfo id = {this.props.id} />
-                {this.getMovList()}
-                <NewMovement />
+                <ProgramInfo id = {this.props.id} />
+                {this.getAreaList()}
+                <NewArea />
             </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    areaInfo: {
+    programInfo: {
         width: '100%',
         height: 70,
         backgroundColor: '#ddeeff',
@@ -284,19 +277,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 12,
     },
-    areaTitle:{
+    programTitle:{
         flex : 1,
     },
     changeButton:{
         backgroundColor: 'orange',
         padding : 5,
     },
-    showAreaContent:{
+    showProgramContent:{
         borderBottomWidth: 2,
         padding: 12,
         flexDirection: 'row',
     },
-    hideAreaContent:{
+    hideProgramContent:{
         height: 0,
     },
     titleInputV:{
@@ -311,7 +304,7 @@ const styles = StyleSheet.create({
         padding : 5,
         marginRight: 10,
     },
-    movement: {
+    area: {
         width: '100%',
         height: 70,
         backgroundColor: '#ddeeff',
@@ -320,32 +313,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 12,
     },
-    movTitle: {
+    areaTitle: {
         flex: 1,
     },
-    movArea: {
-
-    },
-    showMovContent:{
+    showAreaContent:{
         borderBottomWidth: 2,
         padding: 12,
     },
-    hideMovContent:{
+    hideAreaContent:{
         height: 0,
     },
     buttons:{
         flexDirection: 'row',
         paddingTop: 20,
         width: '100%',
-    },
-    setRepeat:{
-        flexDirection: 'column',
-    },
-    setRepeatInput:{
-        width: 50,
-        backgroundColor: '#dddddd',
-        textAlign: 'center',
-        flexDirection: 'column',
     },
     inputSet:{
         margin : 5,
@@ -354,13 +335,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#dddddd'
     },
     removeButton:{
-        marginLeft: 'auto',
         justifyContent: 'center',
-        alignItems: 'flex-end',
+        alignSelf: 'flex-start',
         backgroundColor: 'red',
         padding: 10,
     },
-    newMov: {
+    editButton:{
+        marginLeft: 'auto',
+        justifyContent: 'center',
+        alignSelf: 'flex-end',
+        backgroundColor: 'orange',
+        padding: 10,
+    },
+    newArea: {
         width: '100%',
         height: 70,
         backgroundColor: '#eeeeff',
@@ -371,4 +358,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AreaCreateEdit;
+export default ProgramCreateEdit;

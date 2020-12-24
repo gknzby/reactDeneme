@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from './Pages/NavBar.js';
-import AreaCreateEdit from './PagesA/AreaCreateEdit.js';
+import ProgramCreateEdit from './PagesA/ProgramCreateEdit.js';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,7 @@ class App extends Component
     return (
       <>
         <NavBar/>
-        <AreaCreateEdit id="aaaaaa"/>
+        <ProgramCreateEdit id="aaaaaa"/>
       </>
 
     );
