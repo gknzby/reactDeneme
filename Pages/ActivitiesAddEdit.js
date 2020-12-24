@@ -11,20 +11,18 @@ class Running extends Component{
         this.state = {
             //activityData : getActivityData(this.props.id).data,
             title:"Running",
-            newData : "",
+            data : "",
         }
     }
 
     handleAddButton = () =>
     {
-        let newData = this.setState.newData;
+        let newData = this.state.newData;
         this.setState({
-            newData
+            data : newData,
         })
 
         Alert.alert ("Clicked");
-
-        
     }
 
     render() {
@@ -36,7 +34,7 @@ class Running extends Component{
                     <View >
                         <Button color='pink'
                         title="Add Activity"
-                        onPress={() => this.handleAddButton()}
+                        onPress={this.handleAddButton}
                         />
                     </View>
                 </View>
