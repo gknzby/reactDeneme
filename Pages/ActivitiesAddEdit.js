@@ -1,22 +1,57 @@
 import React, {Component} from 'react';
-import {View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert} from 'react-native';
+import {View, Text, Image, ScrollView, TextInput, StyleSheet, StatusBar, Button, Alert, TextInputBase} from 'react-native';
 import { } from 'react-native';
 
-class Walking extends Component{
+class Running extends Component{
     render() {
         return (
-            <View style = {styles.activityButtons}>
-                <Text>Walking</Text>
+            <View style={styles.activityButtons}>
+                <View >
+                    <Text>Add Running Data</Text>
+                    <TextInput style={styles.dataBox} placeholder="Minutes"/>
+                    <View style={styles.loginButton}>
+                        <Button color='pink'
+                        title="Add Activity"
+                        onPress={() => this.state.navigation.navigate('HomePage')}
+                        />
+                    </View>
+                </View>
             </View>
         );
      }
 }
 
-class Running extends Component{
+class Walking extends Component{
     render() {
         return (
-        <View style = {styles.activityButtons}>
-            <Text>Running</Text>
+            <View style={styles.activityButtons}>
+                <View >
+                    <Text>Add Walking Data</Text>
+                    <TextInput style={styles.dataBox} placeholder="Step"/>
+                    <View style={styles.loginButton}>
+                        <Button color='pink'
+                        title="Add Activity"
+                        />
+                    </View>
+                </View>
+            </View>
+        );
+     }
+}
+
+class Swimming extends Component{
+    render() {
+        return (
+            <View style={styles.activityButtons}>
+            <View >
+                <Text>Add Swimming Data</Text>
+                <TextInput style={styles.dataBox} placeholder="Minutes"/>
+                <View style={styles.loginButton}>
+                    <Button color='pink'
+                    title="Add Activity"
+                    />
+                </View>
+            </View>
         </View>
         );
      }
@@ -25,19 +60,17 @@ class Running extends Component{
 class Cycling extends Component{
     render() {
         return (
-           <View style = {styles.activityButtons}>
-              <Text>Cycling</Text>
-           </View>
-        );
-     }
-}
-
-class Swimming extends Component{
-    render() {
-        return (
-           <View style = {styles.activityButtons}>
-              <Text>Swimming</Text>
-           </View>
+            <View style={styles.activityButtons}>
+            <View >
+                <Text>Add Cycling Data</Text>
+                <TextInput style={styles.dataBox} placeholder="Minutes"/>
+                <View style={styles.loginButton}>
+                    <Button color='pink'
+                    title="Add Activity"
+                    />
+                </View>
+            </View>
+        </View>
         );
      }
 }
@@ -45,9 +78,18 @@ class Swimming extends Component{
 class RopeSkipping extends Component{
     render() {
         return (
-           <View style = {styles.activityButtons}>
-              <Text>RopeSkipping</Text>
-           </View>
+            <View style={styles.activityButtons}>
+            <View >
+                <Text>Add Skipping Rope Data</Text>
+                <TextInput style={styles.dataBox} placeholder="Minutes"/>
+                <View style={styles.loginButton}>
+                    <Button color='pink'
+                    title="Add Activity"
+                    onPress={() => this.state.navigation.navigate('HomePage')}
+                    />
+                </View>
+            </View>
+        </View>
         );
      }
 }
@@ -98,27 +140,25 @@ class ActivitiesAddEdit extends Component {
         this.handlePress(4);
     }
 
-
-
     render() 
     {
        return (
           <View>
               <View style={styles.parent}>
               <View style = {this.state.actStyles[0]} onTouchEnd = {this.handlePress0}>
-                  <Text>Koşu</Text>
+                  <Text>Running</Text>
               </View>
               <View style = {this.state.actStyles[1]} onTouchEnd = {this.handlePress1}>
-                  <Text>Yürüyüş</Text>
+                  <Text>Walking</Text>
               </View>
               <View style = {this.state.actStyles[2]} onTouchEnd = {this.handlePress2}>
-                  <Text>Yüzme</Text>
+                  <Text>Swimming</Text>
               </View>
               <View style = {this.state.actStyles[3]} onTouchEnd = {this.handlePress3}>
-                  <Text>Bisiklet</Text>
+                  <Text>Cycling</Text>
               </View>
               <View style = {this.state.actStyles[4]} onTouchEnd = {this.handlePress4}>
-                  <Text>İp Atlama</Text>
+                  <Text>Skipping Rope</Text>
               </View>
           </View>
           <View style = {styles.content}>
@@ -132,7 +172,7 @@ class ActivitiesAddEdit extends Component {
 
  const styles = StyleSheet.create({
     default:{
-        backgroundColor: 'blue',
+        backgroundColor: 'cyan',
         flex:1,
         alignItems:'center',
         justifyContent: 'center',
@@ -155,7 +195,18 @@ class ActivitiesAddEdit extends Component {
     },
 
     activityButtons:{
+        alignItems: 'center',
+        paddingTop: 50,
     },
 
+    // TEST STYLES
+    dataBox: {
+        height:30,
+        width: '50%',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 4,
+    },
+    
 });
  export default ActivitiesAddEdit;

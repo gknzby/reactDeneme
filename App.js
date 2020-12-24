@@ -11,6 +11,7 @@ import AntExercises from './PagesA/AntExercises.js'
 import ExerciseDay from './Pages/ExerciseDay.js'
 import Activities from './Pages/Activities.js'
 import ActivitiesAddEdit from './Pages/ActivitiesAddEdit.js'
+import LoginPage from './Pages/LoginPage.js'
 
 const Stack = createStackNavigator();
 
