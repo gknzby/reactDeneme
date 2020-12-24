@@ -9,7 +9,7 @@ X   Home
 +               Day
 +           Activities
                 Add/Edit
-            Messages
+//          Messages
         Trainer
             Exercise
                 Program
@@ -27,11 +27,11 @@ X   Home
                     Add/Edit
             Students List
                 Exercise Add/Edit
-                    Area Add/Edit
-                        Movement List
+//                  Area Add/Edit
+//                      Movement List
                 Diet Add/Edit
-                    Day Add/Edit
-            Messages(Student List)
-                Message(With A Student)
+//                  Day Add/Edit
+//          Messages(Student List)  
+//              Message(With A Student)
     Account
         Change details
